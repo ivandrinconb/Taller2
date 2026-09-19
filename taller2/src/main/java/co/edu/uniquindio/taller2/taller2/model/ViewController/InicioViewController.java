@@ -69,6 +69,26 @@ public class InicioViewController {
 
     @FXML
     void OnActionGestionarUsuario(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/co/edu/uniquindio/taller2/taller2/GestionarUsuario.fxml")
+            );
+            Parent root = loader.load();
+            GestionarUsuarioViewController controller = loader.getController();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Gestión de Usuarios");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("No se pudo abrir la ventana de gestión de usuarios.");
+            alert.showAndWait();
+        }
 
     }
 

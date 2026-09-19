@@ -1,6 +1,6 @@
 package co.edu.uniquindio.taller2.taller2.model;
 
-public class Libro {
+public class Libro implements IPrototype {
     private String codigo;
     private String titulo;
     private String autor;
@@ -15,6 +15,11 @@ public class Libro {
         this.disponible = disponible;
     }
 
+    @Override
+    public Libro clonar() {
+        return new Libro(codigo, titulo, autor, categoria, disponible);
+    }
+
     // Getters y setters
     public String getCodigo() { return codigo; }
     public void setCodigo(String codigo) { this.codigo = codigo; }
@@ -23,4 +28,6 @@ public class Libro {
     public String getCategoria() { return categoria; }
     public boolean isDisponible() { return disponible; }
     public void setDisponible(boolean disponible) { this.disponible = disponible; }
+
+
 }

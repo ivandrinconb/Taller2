@@ -60,6 +60,20 @@ public class GestionarLibroViewController {
     private TextField txtTitulo;
 
     @FXML
+    private Button btnClonar;
+
+    @FXML
+    void OnActionClonar(ActionEvent event) {
+        Libro seleccionado = (Libro) tableGestionLibros.getSelectionModel().getSelectedItem();
+        if (seleccionado != null) {
+            Libro copia = seleccionado.clonar();
+            copia.setCodigo(seleccionado.getCodigo() + "_copy");
+            listaLibros.add(copia);
+        }
+
+    }
+
+    @FXML
     void OnActionGuardar(ActionEvent event) {
         Libro nuevo = new Libro(
                 txtCodigo.getText(),
