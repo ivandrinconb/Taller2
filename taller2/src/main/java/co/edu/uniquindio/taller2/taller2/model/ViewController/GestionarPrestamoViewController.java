@@ -55,10 +55,10 @@ public class GestionarPrestamoViewController {
     private TableColumn<Prestamo, Boolean> tcDisponible;
 
     @FXML
-    private TableColumn<Prestamo, DatePicker> tcFechaDevolucion;
+    private TableColumn<Prestamo, LocalDate> tcFechaDevolucion;
 
     @FXML
-    private TableColumn<Prestamo, DatePicker> tcFechaPrestamo;
+    private TableColumn<Prestamo, LocalDate> tcFechaPrestamo;
 
     @FXML
     private TableColumn<Prestamo, Libro> tcLibro;

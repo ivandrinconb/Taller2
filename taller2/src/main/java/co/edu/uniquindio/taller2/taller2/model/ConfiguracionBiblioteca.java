@@ -14,6 +14,7 @@ public class ConfiguracionBiblioteca {
     private ObservableList<Libro> listaLibros;
     private ObservableList<Prestamo> listaPrestamos;
 
+
     private ConfiguracionBiblioteca() {
         listaUsuarios = FXCollections.observableArrayList();
         listaLibros = FXCollections.observableArrayList();
