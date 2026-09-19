@@ -3,6 +3,7 @@ package co.edu.uniquindio.taller2.taller2.model.ViewController;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.taller2.taller2.model.ConfiguracionBiblioteca;
 import co.edu.uniquindio.taller2.taller2.model.Libro;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -62,6 +63,8 @@ public class GestionarLibroViewController {
     @FXML
     private Button btnClonar;
 
+    private ObservableList<Libro> listaLibros = ConfiguracionBiblioteca.getInstance().getListaLibros();
+
     @FXML
     void OnActionClonar(ActionEvent event) {
         Libro seleccionado = (Libro) tableGestionLibros.getSelectionModel().getSelectedItem();
@@ -94,7 +97,7 @@ public class GestionarLibroViewController {
         txtCategoria.clear();
         checkDisponible.setSelected(false);
     }
-    private ObservableList<Libro> listaLibros = FXCollections.observableArrayList();
+
 
     @FXML
     void initialize() {

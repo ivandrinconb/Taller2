@@ -3,6 +3,7 @@ package co.edu.uniquindio.taller2.taller2.model.ViewController;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.taller2.taller2.model.ConfiguracionBiblioteca;
 import co.edu.uniquindio.taller2.taller2.model.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,6 +47,8 @@ public class GestionarUsuarioViewController {
     @FXML
     private TextField txtNombre;
 
+    private ObservableList<Usuario> listaUsuarios = ConfiguracionBiblioteca.getInstance().getListaUsuarios();
+
     @FXML
     void OnActionAgregar(ActionEvent event) {
         Usuario nuevo = new Usuario(txtId.getText(), txtNombre.getText());
@@ -75,7 +78,6 @@ public class GestionarUsuarioViewController {
         }
 
     }
-    private ObservableList<Usuario> listaUsuarios = FXCollections.observableArrayList();
 
     @FXML
     void initialize() {

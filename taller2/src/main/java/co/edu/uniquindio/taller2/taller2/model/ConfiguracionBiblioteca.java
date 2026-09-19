@@ -1,6 +1,8 @@
 package co.edu.uniquindio.taller2.taller2.model;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class ConfiguracionBiblioteca {
 
@@ -8,6 +10,15 @@ public class ConfiguracionBiblioteca {
     private String nombre;
     private String direccion;
     private double porcentajeMulta;
+    private ObservableList<Usuario> listaUsuarios;
+    private ObservableList<Libro> listaLibros;
+    private ObservableList<Prestamo> listaPrestamos;
+
+    private ConfiguracionBiblioteca() {
+        listaUsuarios = FXCollections.observableArrayList();
+        listaLibros = FXCollections.observableArrayList();
+        listaPrestamos = FXCollections.observableArrayList();
+    }
 
     public ConfiguracionBiblioteca(String nombre, String direccion, double porcentajeMulta) {
         this.nombre = nombre;
@@ -23,11 +34,25 @@ public class ConfiguracionBiblioteca {
     }
 
     public static ConfiguracionBiblioteca getInstance() {
+        if (instance == null) {
+            instance = new ConfiguracionBiblioteca();
+        }
         return instance;
     }
 
     public static void setInstance(ConfiguracionBiblioteca instance) {
         ConfiguracionBiblioteca.instance = instance;
+    }
+    public ObservableList<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+
+    public ObservableList<Libro> getListaLibros() {
+        return listaLibros;
+    }
+
+    public ObservableList<Prestamo> getListaPrestamos() {
+        return listaPrestamos;
     }
 
     public String getNombre() {

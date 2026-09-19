@@ -64,6 +64,26 @@ public class InicioViewController {
 
     @FXML
     void OnActionGestionarPrestamo(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/co/edu/uniquindio/taller2/taller2/GestionarPrestamo.fxml")
+            );
+            Parent root = loader.load();
+            GestionarPrestamoViewController controller = loader.getController();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Gestión de Prestamos");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("No se pudo abrir la ventana de gestión de Prestamos.");
+            alert.showAndWait();
+        }
 
     }
 
