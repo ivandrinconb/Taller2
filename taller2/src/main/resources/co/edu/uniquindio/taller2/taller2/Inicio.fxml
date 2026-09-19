@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="358.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.taller2.taller2.model.ViewController.InicioViewController">
+   <children>
+      <Text fill="#1625c7" layoutX="96.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SISTEMA DE BIBLIOTECA UNIVERSITARIA">
+         <font>
+            <Font name="Times New Roman Bold" size="24.0" />
+         </font>
+      </Text>
+      <Separator layoutX="14.0" layoutY="42.0" prefHeight="0.0" prefWidth="670.0" />
+      <Button fx:id="btnGestionLibro" layoutX="237.0" layoutY="98.0" mnemonicParsing="false" onAction="#OnActionGestionarLibro" prefHeight="34.0" prefWidth="238.0" text="Gestion de libros">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnGestionarUsuario" layoutX="236.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnActionGestionarUsuario" prefHeight="34.0" prefWidth="238.0" text="Gestion de Usuario">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnGestionarPrestamo" layoutX="236.0" layoutY="220.0" mnemonicParsing="false" onAction="#OnActionGestionarPrestamo" prefHeight="34.0" prefWidth="238.0" text="Gestion de Prestamo">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnConfiguracionSistema" layoutX="236.0" layoutY="281.0" mnemonicParsing="false" onAction="#OnActionConfiguracionSistema" prefHeight="34.0" prefWidth="237.0" text="Configuracion del Sistema">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+      <Separator layoutX="14.0" layoutY="344.0" prefHeight="3.0" prefWidth="670.0" />
+   </children>
+</AnchorPane>

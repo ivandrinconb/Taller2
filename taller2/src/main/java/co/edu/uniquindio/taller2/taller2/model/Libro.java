@@ -7,12 +7,12 @@ public class Libro {
     private String categoria;
     private boolean disponible;
 
-    public Libro(String codigo, String titulo, String autor, String categoria) {
+    public Libro(String codigo, String titulo, String autor, String categoria, boolean disponible) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
-        this.disponible = true;
+        this.disponible = disponible;
     }
 
     // Getters y setters
