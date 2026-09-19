@@ -25,6 +25,10 @@ public class ConfiguracionBiblioteca {
         this.nombre = nombre;
         this.direccion = direccion;
         this.porcentajeMulta = porcentajeMulta;
+
+        this.listaUsuarios = FXCollections.observableArrayList();
+        this.listaLibros = FXCollections.observableArrayList();
+        this.listaPrestamos = FXCollections.observableArrayList();
     }
     public static ConfiguracionBiblioteca getInstance(String nombre, String direccion, double porcentajeMulta) {
         if (instance == null) {

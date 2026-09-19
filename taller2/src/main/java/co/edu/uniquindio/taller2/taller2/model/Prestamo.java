@@ -16,6 +16,10 @@ public class Prestamo {
         this.fechaDevolucion = fechaDevolucion;
         this.disponible = disponible;
     }
+
+    public boolean isRetrasado() {
+        return fechaDevolucion.isBefore(LocalDate.now());
+    }
     public Usuario getUsuario() { return usuario; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 

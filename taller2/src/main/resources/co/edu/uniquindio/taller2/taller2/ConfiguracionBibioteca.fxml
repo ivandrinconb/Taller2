@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="472.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.taller2.taller2.model.ViewController.ConfiguracionBibliotecaViewController">
+   <children>
+      <Text fill="#2016d1" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Configuracion/Reportes ">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Text>
+      <Separator layoutX="14.0" layoutY="36.0" prefHeight="3.0" prefWidth="713.0" />
+      <Text layoutX="14.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Configuracion del sistema.">
+         <font>
+            <Font name="Times New Roman" size="13.0" />
+         </font>
+      </Text>
+      <Separator layoutX="14.0" layoutY="70.0" prefWidth="200.0" />
+      <Text layoutX="28.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maximo de prestamos por Usuario:">
+         <font>
+            <Font name="Times New Roman" size="13.0" />
+         </font>
+      </Text>
+      <Spinner fx:id="spinnerPrestamosUsuario" layoutX="28.0" layoutY="109.0" prefHeight="26.0" prefWidth="184.0" />
+      <Text layoutX="28.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dias de prestamo permitidos:">
+         <font>
+            <Font name="Times New Roman" size="13.0" />
+         </font>
+      </Text>
+      <Spinner fx:id="spinnerDiasPermitidos" layoutX="28.0" layoutY="197.0" prefHeight="26.0" prefWidth="184.0" />
+      <CheckBox fx:id="checkReservas" layoutX="28.0" layoutY="244.0" mnemonicParsing="false" text="Permitir Reservas">
+         <font>
+            <Font name="Times New Roman" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="checkRenovaciones" layoutX="28.0" layoutY="276.0" mnemonicParsing="false" text="Permitir Renovaciones">
+         <font>
+            <Font name="Times New Roman" size="12.0" />
+         </font>
+      </CheckBox>
+      <Separator layoutX="239.0" layoutY="56.0" orientation="VERTICAL" prefHeight="401.0" prefWidth="2.0" />
+      <Text layoutX="255.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reportes y Estadisticas">
+         <font>
+            <Font name="Times New Roman" size="13.0" />
+         </font>
+      </Text>
+      <Separator layoutX="245.0" layoutY="69.0" prefHeight="3.0" prefWidth="483.0" />
+      <TableView fx:id="TableReportes" layoutX="245.0" layoutY="80.0" prefHeight="155.0" prefWidth="450.0">
+        <columns>
+          <TableColumn fx:id="tcUsuario" prefWidth="131.20001220703125" text="Usuario" />
+          <TableColumn fx:id="tcPrestamos" prefWidth="74.39996337890625" text="Prestamos" />
+            <TableColumn fx:id="tcLibros" prefWidth="115.19998168945312" text="Libros" />
+            <TableColumn fx:id="tcRetrasos" prefWidth="129.5999755859375" text="Retrasos" />
+        </columns>
+      </TableView>
+      <Text layoutX="245.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Libros mas prestados.">
+         <font>
+            <Font name="Times New Roman" size="13.0" />
+         </font>
+      </Text>
+      <Separator layoutX="245.0" layoutY="259.0" prefHeight="3.0" prefWidth="153.0" />
+      <BarChart fx:id="BarLibrosPrestados" layoutX="242.0" layoutY="274.0" prefHeight="183.0" prefWidth="221.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Separator layoutX="470.0" layoutY="244.0" orientation="VERTICAL" prefHeight="210.0" prefWidth="6.0" />
+      <Text layoutX="487.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prestamos por categoria">
+         <font>
+            <Font name="Times New Roman" size="13.0" />
+         </font>
+      </Text>
+      <PieChart fx:id="pieCategoria" layoutX="487.0" layoutY="284.0" prefHeight="130.0" prefWidth="153.0" />
+      <Separator layoutX="476.0" layoutY="258.0" prefHeight="3.0" prefWidth="241.0" />
+      <Button fx:id="btnGuardar" layoutX="50.0" layoutY="306.0" mnemonicParsing="false" onAction="#OnActionGuardar" text="Guardar Configuracion">
+         <font>
+            <Font name="Times New Roman" size="12.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="txtInfo" layoutX="20.0" layoutY="342.0" prefHeight="112.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>

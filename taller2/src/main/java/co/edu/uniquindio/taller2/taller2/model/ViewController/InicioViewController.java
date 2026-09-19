@@ -2,7 +2,13 @@ package co.edu.uniquindio.taller2.taller2.model.ViewController;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.taller2.taller2.model.ConfiguracionBiblioteca;
+import co.edu.uniquindio.taller2.taller2.model.Prestamo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,9 +37,50 @@ public class InicioViewController {
 
     @FXML
     private Button btnGestionarUsuario;
+    private List<Prestamo> listaPrestamos;
+    private Map<String, Integer> prestamosPorLibro;
+    private Map<String, Integer> prestamosPorCategoria;
 
     @FXML
     void OnActionConfiguracionSistema(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/co/edu/uniquindio/taller2/taller2/ConfiguracionBibioteca.fxml")
+            );
+            Parent root = loader.load();
+            ConfiguracionBibliotecaViewController controller = loader.getController();
+
+            ConfiguracionBiblioteca biblioteca = ConfiguracionBiblioteca.getInstance();
+            List<Prestamo> listaPrestamos = biblioteca.getListaPrestamos();
+
+            Map<String, Integer> prestamosPorLibro = new HashMap<>();
+            Map<String, Integer> prestamosPorCategoria = new HashMap<>();
+
+            for (Prestamo p : listaPrestamos) {
+                String titulo = p.getLibro().getTitulo();
+                prestamosPorLibro.put(titulo, prestamosPorLibro.getOrDefault(titulo, 0) + 1);
+
+                String categoria = p.getLibro().getCategoria();
+                prestamosPorCategoria.put(categoria, prestamosPorCategoria.getOrDefault(categoria, 0) + 1);
+            }
+            controller.cargarReportes(listaPrestamos);
+            controller.cargarBarChart(prestamosPorLibro);
+            controller.cargarPieChart(prestamosPorCategoria);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Configuracion Biblioteca");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("No se pudo abrir la ventana de Configuracion Biblioteca.");
+            alert.showAndWait();
+        }
+
 
     }
 
